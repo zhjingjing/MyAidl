@@ -19,6 +19,7 @@
             android:enabled="true"
             android:exported="true"
             android:process=":aidl"
-            />
+            >
+        </service>
     </application>
 </manifest>

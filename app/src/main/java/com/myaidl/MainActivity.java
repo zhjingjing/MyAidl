@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        Intent intent1 = new Intent(this, IMyAidlInterface.class);
+        Intent intent1 = new Intent(this, MyService.class);
         boolean result =  this.getApplicationContext().bindService(intent1, connection,BIND_AUTO_CREATE);
 
         tvAdd.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     iMyAidlInterface.addPerson(person);
                     List<Person> list=iMyAidlInterface.getPersonList();
-                    tvContent.setText(tvContent+"\n"+list.size());
+                    tvContent.setText(tvContent.getText().toString()+"\n"+list.size());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
